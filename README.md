@@ -1,4 +1,4 @@
-# 💫 About Me:
+# 💫 About us:
 We are currently working on a group project for school! And our project is making a quiz.
 
 
