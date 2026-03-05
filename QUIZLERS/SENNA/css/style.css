@@ -8,6 +8,7 @@
   box-sizing: border-box;
   justify-items: center;
   user-select: none;
+  webkit-user-drag: none;
 }
 
 body,
@@ -97,7 +98,6 @@ nav {
 
 .navItem,
 li {
-  user-select: none;
   list-style-type: none;
   cursor: default;
   transition: ease-in-out 2ms;
@@ -129,7 +129,6 @@ a {
 }
 
 #slogan {
-  user-select: none;
   color: #666;
   font-family: "Caveat", cursive;
 }
