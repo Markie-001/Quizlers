@@ -50,7 +50,7 @@ h2 {
 #open-input {
     padding: 10px;
     font-size: 1rem;
-    color: white;
+    color: #000;
     cursor: pointer;
     border-radius: 10px;
     height: 75px;
@@ -122,4 +122,5 @@ h2 {
 .quiz-box {
     flex: 1;
     text-align: center;
+
 }
