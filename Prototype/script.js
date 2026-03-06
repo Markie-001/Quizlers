@@ -18,17 +18,69 @@ const questions = [
         options: ["water", "wet", "eww", "healthy"],
         answer: 0,
         image: "Foto/Water.jpg"
-    }
+    },
+    {
+        type: "open",
+        question: "Wie is Olivier",
+        answer: "Olivier",
+        image: "Foto/Numbers.jpg"
+    },
+    {
+        type: "keuze",
+        question: "What is water?",
+        options: ["water", "wet", "eww", "healthy"],
+        answer: 0,
+        image: "Foto/Water.jpg"
+    },
+    {
+        type: "keuze",
+        question: "What is water?",
+        options: ["water", "wet", "eww", "healthy"],
+        answer: 0,
+        image: "Foto/Water.jpg"
+    },
+    {
+        type: "keuze",
+        question: "What is water?",
+        options: ["water", "wet", "eww", "healthy"],
+        answer: 0,
+        image: "Foto/Water.jpg"
+    },
+    {
+        type: "keuze",
+        question: "What is water?",
+        options: ["water", "wet", "eww", "h2o"],
+        answer: 3,
+        image: "Foto/Water.jpg"
+    },
+    {
+        type: "keuze",
+        question: "What is water?",
+        options: ["water", "wet", "eww", "healthy"],
+        answer: 0,
+        image: "Foto/Water.jpg"
+    },
+    {
+        type: "keuze",
+        question: "What is water?",
+        options: ["water", "wet", "eww", "healthy"],
+        answer: 0,
+        image: "Foto/Water.jpg"
+    },
+    
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
+let timeLeft = 10;
+let timer;
 
 function displayQuestion() {
     const questionElement = document.getElementById("question");
     const optionButtons = document.querySelectorAll(".option");
     const openInput = document.getElementById("open-input");
     const submitOpen = document.getElementById("submit-open");
+    const countdown = document.getElementById("dountdown");
 
     const question = questions[currentQuestionIndex];
     questionElement.textContent = question.question;
@@ -61,6 +113,7 @@ function displayQuestion() {
     }
 
     document.getElementById("feedback").textContent = "";
+    starttimer();
 }
 
 function submitOpenAnswer() {
@@ -79,6 +132,7 @@ function submitOpenAnswer() {
     }
 
     document.getElementById("score").textContent = `Score: ${score}`;
+    starttimer();
 }
 
 function selectAnswer(selectedOptionIndex) {
@@ -104,6 +158,22 @@ function nextQuestion() {
     } else {
         showResults();
     }
+}
+
+function starttimer() {
+    clearInterval(timer);
+    timeLeft = 10;
+    countdown.textContent = `Time left: ${timeLeft}s`;
+    timer = setInterval(() => {
+        timeLeft--;
+        countdown.textContent = `Time left: ${timeLeft}s`;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            if (!currentQuestionIndex) {
+                nextQuestion();
+            }
+        }
+    }, 1000)
 }
 
 function showResults() {
