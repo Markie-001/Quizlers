@@ -90,7 +90,7 @@ nav {
 
 #navFooter,
 #navHeader {
-  height: 100%;
+  height: 50%;
   display: flex;
   flex-direction: row;
   gap: 2rem;
